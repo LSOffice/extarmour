@@ -6,6 +6,7 @@ import java.util.Arrays;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
 
 public class ArmourSet implements Listener {
 	public ItemStack helmet;
@@ -13,6 +14,10 @@ public class ArmourSet implements Listener {
 	public ItemStack leggings;
 	public ItemStack boots;
 	public Player player;
+	public ShapedRecipe recipeHelmet;
+	public ShapedRecipe recipeChestplate;
+	public ShapedRecipe recipeLeggings;
+	public ShapedRecipe recipeBoots;
 	
 	public ArmourSet() {
 		// define helmet, chestplate, leggings & boots
@@ -54,5 +59,9 @@ public class ArmourSet implements Listener {
 				this.player.getWorld().dropItemNaturally(this.player.getLocation(), i);
 			}
 		}
+	}
+	
+	public ArrayList<ShapedRecipe> getRecipe() {
+		return new ArrayList<ShapedRecipe>(Arrays.asList(this.recipeHelmet, this.recipeChestplate, this.recipeLeggings, this.recipeBoots));
 	}
 }

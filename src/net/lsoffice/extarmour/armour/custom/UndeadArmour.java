@@ -12,9 +12,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -39,6 +39,28 @@ public class UndeadArmour extends ArmourSet {
 		this.chestplate = new ArmourPiece(Material.CHAINMAIL_CHESTPLATE, "§fUndead Chestplate", new PieceAbility().addAbility("Vampiricy", new ArrayList<String>(Arrays.asList("When attacking an enemy, steal", "2.5 hearts from them", "(12 seconds cooldown)"))), undeadArmourAbility).getArmourPiece();
 		this.leggings = new ArmourPiece(Material.CHAINMAIL_LEGGINGS, "§fUndead Leggings", new PieceAbility().addAbility("Undying", new ArrayList<String>(Arrays.asList("When you have below 2.5 hearts", "immediately heal to 85% health", "(17 seconds cooldown)"))), undeadArmourAbility).getArmourPiece();
 		this.boots = new ArmourPiece(Material.CHAINMAIL_BOOTS, "§fUndead Boots", null, undeadArmourAbility).getArmourPiece();
+		
+		this.recipeHelmet = new ShapedRecipe(this.helmet);
+		this.recipeHelmet.shape("RRR", "B B", "");
+		this.recipeHelmet.setIngredient('R', Material.ROTTEN_FLESH);
+		this.recipeHelmet.setIngredient('B', Material.DIAMOND);
+		
+		this.recipeChestplate = new ShapedRecipe(this.chestplate);
+		this.recipeChestplate.shape("D D", "RRR", "BBB");
+		this.recipeChestplate.setIngredient('R', Material.ROTTEN_FLESH);
+		this.recipeChestplate.setIngredient('D', Material.DIAMOND_BLOCK);
+		this.recipeChestplate.setIngredient('B', Material.DIAMOND);
+		
+		this.recipeLeggings = new ShapedRecipe(this.leggings);
+		this.recipeLeggings.shape("RRR", "D D", "B B");
+		this.recipeLeggings.setIngredient('R', Material.ROTTEN_FLESH);
+		this.recipeLeggings.setIngredient('D', Material.DIAMOND_BLOCK);
+		this.recipeLeggings.setIngredient('B', Material.DIAMOND);
+		
+		this.recipeBoots = new ShapedRecipe(this.boots);
+		this.recipeBoots.shape("", "R R", "B B");
+		this.recipeBoots.setIngredient('R', Material.ROTTEN_FLESH);
+		this.recipeBoots.setIngredient('B', Material.DIAMOND);
 	}
 
 	@EventHandler
