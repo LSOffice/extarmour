@@ -1,0 +1,9 @@
+main: net.lsoffice.extarmour.Main
+name: ExtArmour
+author: LSOffice
+version: 0.0.4
+api-version: 1.16
+
+commands:
+  ea:
+    description: ext armour
